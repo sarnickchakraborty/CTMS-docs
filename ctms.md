@@ -2,9 +2,9 @@
 
 ### **Project Title:** Complaint & Ticket Management System (CTMS)
 
-### **Developer:** *Sarnick Chakraborty*
+### **Developer:** _Sarnick Chakraborty_
 
-### **Submission Date:** *07.11.2025*
+### **Submission Date:** _07.11.2025_
 
 ---
 
@@ -15,9 +15,9 @@ Each complaint is converted into a **ticket** that passes through a defined work
 
 This system aims to:
 
-* Improve transparency and accountability.
-* Track complaints efficiently.
-* Ensure faster resolution through ticket assignment and monitoring.
+- Improve transparency and accountability.
+- Track complaints efficiently.
+- Ensure faster resolution through ticket assignment and monitoring.
 
 ---
 
@@ -35,28 +35,28 @@ This system aims to:
 
 1. **User registers & logs in**
 
-   * Raises complaint → ticket auto-generated with Open status
-   * User can view ticket in their dashboard
+   - Raises complaint → ticket auto-generated with Open status
+   - User can view ticket in their dashboard
 
 2. **Admin dashboard**
 
-   * Sees new tickets
-   * Assigns to agent and sets priority (Low/Medium/High)
+   - Sees new tickets
+   - Assigns to agent and sets priority (Low/Medium/High)
 
 3. **Agent dashboard**
 
-   * Gets assigned ticket and adds ETA
-   * Changes status: In Progress → Resolved
-   * Adds internal or public comments
+   - Gets assigned ticket and adds ETA
+   - Changes status: In Progress → Resolved
+   - Adds internal or public comments
 
 4. **User dashboard**
 
-   * Sees real-time ticket updates and ETA
-   * After Resolved → gives rating and feedback
+   - Sees real-time ticket updates and ETA
+   - After Resolved → gives rating and feedback
 
 5. **Admin can track performance**
 
-   * Average resolution time, user ratings, ticket volume by status, etc.
+   - Average resolution time, user ratings, ticket volume by status, etc.
 
 ![Sequence Diagram](./sequence-diagram.png)
 
@@ -66,12 +66,11 @@ This system aims to:
 
 | Module                  | Description                                            | Actors Involved    | ETA (days) |
 | ----------------------- | ------------------------------------------------------ | ------------------ | ---------- |
-| **User Authentication** | Register, Login, Logout                                | User, Admin, Agent | 1        |
+| **User Authentication** | Register, Login, Logout                                | User, Admin, Agent | 1          |
 | **User Dashboard**      | Raise ticket, track status, view ETA                   | User               | 2          |
 | **Admin Dashboard**     | View tickets, assign agents, set priority              | Admin              | 2          |
-| **Agent Dashboard**     | View assigned tickets, update status, add ETA/comments | Agent              | 2         |
-| **Feedback System**     | User feedback and ratings after resolution             | User               | 2         |
-
+| **Agent Dashboard**     | View assigned tickets, update status, add ETA/comments | Agent              | 2          |
+| **Feedback System**     | User feedback and ratings after resolution             | User               | 2          |
 
 ---
 
@@ -80,18 +79,20 @@ This system aims to:
 ### **Entity Definitions**
 
 #### **1. User**
-| Attribute      | Type         | Description                                    |
-|----------------|--------------|------------------------------------------------|
-| user_id        | INT (PK)     | Primary key, unique identifier                 |
-| name           | VARCHAR(100) | User's full name                               |
-| email          | VARCHAR(255) | User's email (unique)                          |
-| password       | VARCHAR(255) | Encrypted password                             |
-| role           | ENUM         | Role: employee, admin, support_agent            |
-| is_active      | BOOLEAN      | Account status (active/inactive)               |
-| created_at     | TIMESTAMP    | Account creation timestamp                     |
-| updated_at     | TIMESTAMP    | Last update timestamp                          |
+
+| Attribute  | Type         | Description                          |
+| ---------- | ------------ | ------------------------------------ |
+| user_id    | INT (PK)     | Primary key, unique identifier       |
+| name       | VARCHAR(100) | User's full name                     |
+| email      | VARCHAR(255) | User's email (unique)                |
+| password   | VARCHAR(255) | Encrypted password                   |
+| role       | ENUM         | Role: employee, admin, support_agent |
+| is_active  | BOOLEAN      | Account status (active/inactive)     |
+| created_at | TIMESTAMP    | Account creation timestamp           |
+| updated_at | TIMESTAMP    | Last update timestamp                |
 
 **Relationships:**
+
 - One-to-Many → Ticket (as employee: raises tickets)
 - One-to-Many → Ticket (as support_agent: handles tickets)
 - One-to-Many → Feedback (as employee: provides feedback)
@@ -100,22 +101,24 @@ This system aims to:
 ---
 
 #### **2. Ticket**
-| Attribute      | Type         | Description                                    |
-|----------------|--------------|------------------------------------------------|
-| ticket_id      | INT (PK)     | Primary key, unique identifier                 |
-| title          | VARCHAR(255) | Ticket title/subject                           |
-| description    | TEXT         | Detailed description of the issue              |
-| status         | ENUM         | Status: Open, Assigned, In Progress, Resolved            |
-| priority       | ENUM         | Priority: Low, Medium, High (nullable)         |
-| eta            | DATETIME     | Estimated time of resolution (nullable)        |
-| created_by     | INT (FK)     | Foreign key referencing User (employee)        |
-| assigned_to    | INT (FK)     | Foreign key referencing User (support_agent)    |
-| created_at     | TIMESTAMP    | Ticket creation timestamp                      |
-| updated_at     | TIMESTAMP    | Last update timestamp                          |
-| assigned_at    | TIMESTAMP    | Timestamp when ticket was assigned (nullable)  |
-| resolved_at    | TIMESTAMP    | Timestamp when ticket was resolved (nullable)  |
+
+| Attribute   | Type         | Description                                   |
+| ----------- | ------------ | --------------------------------------------- |
+| ticket_id   | INT (PK)     | Primary key, unique identifier                |
+| title       | VARCHAR(255) | Ticket title/subject                          |
+| description | TEXT         | Detailed description of the issue             |
+| status      | ENUM         | Status: Open, Assigned, In Progress, Resolved |
+| priority    | ENUM         | Priority: Low, Medium, High (nullable)        |
+| eta         | DATETIME     | Estimated time of resolution (nullable)       |
+| created_by  | INT (FK)     | Foreign key referencing User (employee)       |
+| assigned_to | INT (FK)     | Foreign key referencing User (support_agent)  |
+| created_at  | TIMESTAMP    | Ticket creation timestamp                     |
+| updated_at  | TIMESTAMP    | Last update timestamp                         |
+| assigned_at | TIMESTAMP    | Timestamp when ticket was assigned (nullable) |
+| resolved_at | TIMESTAMP    | Timestamp when ticket was resolved (nullable) |
 
 **Relationships:**
+
 - Many-to-One → User (created_by: employee who raised the ticket)
 - Many-to-One → User (assigned_to: supportAgent handling the ticket)
 - One-to-One → Feedback (One ticket can have one feedback)
@@ -124,34 +127,38 @@ This system aims to:
 ---
 
 #### **3. Feedback**
-| Attribute      | Type         | Description                                    |
-|----------------|--------------|------------------------------------------------|
-| feedback_id    | INT (PK)     | Primary key, unique identifier                 |
-| rating         | INT          | Rating (1-5 scale)                             |
-| comment        | TEXT         | User's feedback comment (nullable)             |
-| ticket_id      | INT (FK)     | Foreign key referencing Ticket (unique)        |
-| user_id        | INT (FK)     | Foreign key referencing User (employee)        |
-| created_at     | TIMESTAMP    | Feedback creation timestamp                    |
-| updated_at     | TIMESTAMP    | Last update timestamp                          |
+
+| Attribute   | Type      | Description                             |
+| ----------- | --------- | --------------------------------------- |
+| feedback_id | INT (PK)  | Primary key, unique identifier          |
+| rating      | INT       | Rating (1-5 scale)                      |
+| comment     | TEXT      | User's feedback comment (nullable)      |
+| ticket_id   | INT (FK)  | Foreign key referencing Ticket (unique) |
+| user_id     | INT (FK)  | Foreign key referencing User (employee) |
+| created_at  | TIMESTAMP | Feedback creation timestamp             |
+| updated_at  | TIMESTAMP | Last update timestamp                   |
 
 **Relationships:**
+
 - One-to-One → Ticket (One feedback for one resolved ticket)
 - Many-to-One → User (employee who provided feedback)
 
 ---
 
 #### **4. AgentComment**
-| Attribute      | Type         | Description                                    |
-|----------------|--------------|------------------------------------------------|
-| comment_id     | INT (PK)     | Primary key, unique identifier                 |
-| ticket_id      | INT (FK)     | Foreign key referencing Ticket                 |
-| user_id        | INT (FK)     | Foreign key referencing User (supportAgent)    |
-| comment        | TEXT         | Comment text (internal or public)              |
-| comment_type   | ENUM         | Type: Internal, Public                         |
-| created_at     | TIMESTAMP    | Comment creation timestamp                     |
-| updated_at     | TIMESTAMP    | Last update timestamp                          |
+
+| Attribute    | Type      | Description                                 |
+| ------------ | --------- | ------------------------------------------- |
+| comment_id   | INT (PK)  | Primary key, unique identifier              |
+| ticket_id    | INT (FK)  | Foreign key referencing Ticket              |
+| user_id      | INT (FK)  | Foreign key referencing User (supportAgent) |
+| comment      | TEXT      | Comment text (internal or public)           |
+| comment_type | ENUM      | Type: Internal, Public                      |
+| created_at   | TIMESTAMP | Comment creation timestamp                  |
+| updated_at   | TIMESTAMP | Last update timestamp                       |
 
 **Relationships:**
+
 - Many-to-One → Ticket (Multiple comments for one ticket)
 - Many-to-One → User (supportAgent who added the comment)
 
@@ -159,15 +166,14 @@ This system aims to:
 
 ![ER Diagram](./er-diagram.png)
 
-
 ---
 
 ## **7. API Endpoints Design (Simplified)**
 
 ### **Authentication Routes**
 
-| Method   | Endpoint        | Description              | Access        | Request Body                      | Response                     |
-| -------- | --------------- | ------------------------ | ------------- | --------------------------------- | ---------------------------- |
+| Method   | Endpoint           | Description              | Access        | Request Body                      | Response                     |
+| -------- | ------------------ | ------------------------ | ------------- | --------------------------------- | ---------------------------- |
 | **POST** | `/api/v1/register` | Register new user        | Public        | `{ name, email, password, role }` | `{ success, message, user }` |
 | **POST** | `/api/v1/login`    | Login user/admin/agent   | Public        | `{ email, password }`             | `{ success, token, user }`   |
 | **POST** | `/api/v1/logout`   | Logout current user      | Authenticated | -                                 | `{ success, message }`       |
@@ -178,8 +184,8 @@ This system aims to:
 
 ### **Ticket Routes**
 
-| Method     | Endpoint                         | Description                   | Access           | Request Body                | Response                        |
-| ---------- | -------------------------------- | ----------------------------- | ---------------- | --------------------------- | ------------------------------- |
+| Method     | Endpoint                            | Description                   | Access           | Request Body                | Response                        |
+| ---------- | ----------------------------------- | ----------------------------- | ---------------- | --------------------------- | ------------------------------- |
 | **POST**   | `/api/v1/tickets`                   | Create new ticket             | User             | `{ title, description }`    | `{ success, message, ticket }`  |
 | **GET**    | `/api/v1/tickets`                   | Get all tickets               | Role-based       | -                           | `{ success, tickets }`          |
 | **GET**    | `/api/v1/tickets/:id`               | View ticket details           | User/Admin/Agent | -                           | `{ success, ticket, comments }` |
@@ -195,8 +201,8 @@ This system aims to:
 
 ### **Comment Routes**
 
-| Method     | Endpoint                    | Description                 | Access              | Request Body                | Response                        |
-| ---------- | --------------------------- | --------------------------- | ------------------- | --------------------------- | ------------------------------- |
+| Method     | Endpoint                       | Description                 | Access              | Request Body                | Response                        |
+| ---------- | ------------------------------ | --------------------------- | ------------------- | --------------------------- | ------------------------------- |
 | **POST**   | `/api/v1/tickets/:id/comments` | Add comment to ticket       | Agent               | `{ comment, comment_type }` | `{ success, message, comment }` |
 | **GET**    | `/api/v1/tickets/:id/comments` | Get all comments for ticket | User/Admin/Agent    | -                           | `{ success, comments }`         |
 | **PUT**    | `/api/v1/comments/:id`         | Update comment              | Agent (owner)       | `{ comment }`               | `{ success, message, comment }` |
@@ -206,8 +212,8 @@ This system aims to:
 
 ### **Feedback Routes**
 
-| Method     | Endpoint                    | Description                | Access       | Request Body                     | Response                         |
-| ---------- | --------------------------- | -------------------------- | ------------ | -------------------------------- | -------------------------------- |
+| Method     | Endpoint                       | Description                | Access       | Request Body                     | Response                         |
+| ---------- | ------------------------------ | -------------------------- | ------------ | -------------------------------- | -------------------------------- |
 | **POST**   | `/api/v1/feedback`             | Submit feedback for ticket | User         | `{ ticket_id, rating, comment }` | `{ success, message, feedback }` |
 | **GET**    | `/api/v1/feedback/:id`         | Get feedback by ID         | Admin/Agent  | -                                | `{ success, feedback }`          |
 | **GET**    | `/api/v1/tickets/:id/feedback` | Get feedback for ticket    | Admin/Agent  | -                                | `{ success, feedback }`          |
@@ -218,8 +224,8 @@ This system aims to:
 
 ### **User Management Routes (Admin)**
 
-| Method     | Endpoint                    | Description             | Access | Request Body                       | Response                     |
-| ---------- | --------------------------- | ----------------------- | ------ | ---------------------------------- | ---------------------------- |
+| Method     | Endpoint                       | Description             | Access | Request Body                       | Response                     |
+| ---------- | ------------------------------ | ----------------------- | ------ | ---------------------------------- | ---------------------------- |
 | **GET**    | `/api/v1/users`                | Get all users           | Admin  | -                                  | `{ success, users }`         |
 | **GET**    | `/api/v1/users/:id`            | Get user by ID          | Admin  | -                                  | `{ success, user }`          |
 | **PUT**    | `/api/v1/users/:id`            | Update user details     | Admin  | `{ name, email, role, is_active }` | `{ success, message, user }` |
@@ -231,20 +237,19 @@ This system aims to:
 
 ### **Reports & Analytics Routes (Admin)**
 
-| Method  | Endpoint                       | Description                 | Access | Request Body | Response                             |
-| ------- | ------------------------------ | --------------------------- | ------ | ------------ | ------------------------------------ |
-| **GET** | `/api/v1/reports`                 | Get overall statistics      | Admin  | -            | `{ success, stats }`                 |
-| **GET** | `/api/v1/reports/tickets`         | Get ticket statistics       | Admin  | -            | `{ success, ticket_stats }`          |
-| **GET** | `/api/v1/reports/agents`          | Get agent performance stats | Admin  | -            | `{ success, agent_stats }`           |
-| **GET** | `/api/v1/reports/feedback`        | Get feedback analytics      | Admin  | -            | `{ success, feedback_stats }`        |
-
+| Method  | Endpoint                   | Description                 | Access | Request Body | Response                      |
+| ------- | -------------------------- | --------------------------- | ------ | ------------ | ----------------------------- |
+| **GET** | `/api/v1/reports`          | Get overall statistics      | Admin  | -            | `{ success, stats }`          |
+| **GET** | `/api/v1/reports/tickets`  | Get ticket statistics       | Admin  | -            | `{ success, ticket_stats }`   |
+| **GET** | `/api/v1/reports/agents`   | Get agent performance stats | Admin  | -            | `{ success, agent_stats }`    |
+| **GET** | `/api/v1/reports/feedback` | Get feedback analytics      | Admin  | -            | `{ success, feedback_stats }` |
 
 ---
 
 ### **Dashboard Routes**
 
-| Method  | Endpoint               | Description              | Access | Request Body | Response                      |
-| ------- | ---------------------- | ------------------------ | ------ | ------------ | ----------------------------- |
+| Method  | Endpoint                  | Description              | Access | Request Body | Response                      |
+| ------- | ------------------------- | ------------------------ | ------ | ------------ | ----------------------------- |
 | **GET** | `/api/v1/dashboard/user`  | Get user dashboard data  | User   | -            | `{ success, dashboard_data }` |
 | **GET** | `/api/v1/dashboard/agent` | Get agent dashboard data | Agent  | -            | `{ success, dashboard_data }` |
 | **GET** | `/api/v1/dashboard/admin` | Get admin dashboard data | Admin  | -            | `{ success, dashboard_data }` |
@@ -262,4 +267,12 @@ This system aims to:
 
 ---
 
+## **10. Tech Stack**
 
+| Layer               | Technology / Tool |
+| ------------------- | ----------------- |
+| **Frontend (FE)**   | React.js, Zustand |
+| **Backend (BE)**    | ASP.NET Core 8    |
+| **Database (DB)**   | PostgreSQL        |
+| **Version Control** | Git, GitHub       |
+| **Testing / API**   | Postman           |
