@@ -2,8 +2,6 @@
 
 ### **Project Title:** Complaint & Ticket Management System (CTMS)
 
-### **Methodology:** Agile (Scrum)
-
 ### **Developer:** *Sarnick Chakraborty*
 
 ### **Submission Date:** *07.11.2025*
