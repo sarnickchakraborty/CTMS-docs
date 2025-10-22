@@ -68,11 +68,7 @@ The CTMS is designed to centralize all service complaints and automate their tra
      - Submit **feedback** → system auto-closes ticket → status **Closed**
      - OR click **Reopen** → status changes to **Reopened**
 
-5. **System auto-close**
-
-   - If a **Resolved** ticket remains without feedback or reopen action for _X days_ (e.g., 3), it is **automatically closed** by the system.
-
-6. **Admin reports**
+5. **Admin reports**
 
    - Admins monitor performance via dashboards showing ticket statistics, SLA breaches, feedback scores, and average resolution time.
 
