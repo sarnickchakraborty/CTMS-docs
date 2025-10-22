@@ -181,9 +181,9 @@ Instead of manually handling emails, phone calls, or spreadsheets, CTMS provides
 | **POST** | `/api/v1/register` | Register new user        | Public        | `{ name, email, password, role }` | `{ success, message, user }` |
 | **POST** | `/api/v1/login`    | Login user/admin/agent   | Public        | `{ email, password }`             | `{ success, token, user }`   |
 | **POST** | `/api/v1/logout`   | Logout current user      | Authenticated | -                                 | `{ success, message }`       |
-| **GET**  | `/api/v1/profile`  | Get current user profile | Authenticated | -                                 | `{ success, user }`          |
-| **PUT**  | `/api/v1/profile`  | Update user profile      | Authenticated | `{ name, email }`                 | `{ success, message, user }` |
-
+| **GET**  | `/api/v1/me`  | Get current user profile | Authenticated | -                                 | `{ success, user }`          |
+| **PUT**  | `/api/v1/edit`  | Update user profile      | Authenticated | `{ name, email }`                 | `{ success, message, user }` |
+| **DELETE**  | `/api/v1/delete`  | Delete user profile      | Authenticated | -                 | `{ success, message}` |
 ---
 
 ### **Ticket Routes**
