@@ -302,7 +302,11 @@ The CTMS is designed to centralize all service complaints and automate their tra
 
 ## **11. Wireframe**
 
-![Wireframe](./w1.png)
-![Wireframe](./w2.png)
-![Wireframe](./w3.png)
-![Wireframe](./w4.png)
+![/user/dashboard](./w1.png)
+![/user/in-progress](./w2.png)
+![/user/ticket/:ticketId](./w3.png)
+![/user/ticket/:ticketId](./w4.png)
+![/admin/dashboard](./w5.png)
+![/admin/analytics](./w6.png)
+![/admin/analytics/agent/:agentId](./w7.png)
+![/admin/analytics/user/:userId](./w8.png)
