@@ -163,15 +163,14 @@ The CTMS is designed to centralize all service complaints and automate their tra
 
 ### **4. AgentComment**
 
-| Attribute    | Type      | Description           |
-| ------------ | --------- | --------------------- |
-| comment_id   | INT (PK)  | Primary key           |
-| ticket_id    | INT (FK)  | Related ticket        |
-| user_id      | INT (FK)  | Agent who commented   |
-| comment      | TEXT      | Comment text          |
-| comment_type | ENUM      | `Public`, `Internal`  |
-| created_at   | TIMESTAMP | Creation timestamp    |
-| updated_at   | TIMESTAMP | Last update timestamp |
+| Attribute  | Type      | Description           |
+| ---------- | --------- | --------------------- |
+| comment_id | INT (PK)  | Primary key           |
+| ticket_id  | INT (FK)  | Related ticket        |
+| user_id    | INT (FK)  | Agent who commented   |
+| comment    | TEXT      | Comment text          |
+| created_at | TIMESTAMP | Creation timestamp    |
+| updated_at | TIMESTAMP | Last update timestamp |
 
 **Relationships:**
 
@@ -222,12 +221,12 @@ The CTMS is designed to centralize all service complaints and automate their tra
 
 ### **Comment Routes**
 
-| Method     | Endpoint                       | Description             | Access        | Request Body                | Response                |
-| ---------- | ------------------------------ | ----------------------- | ------------- | --------------------------- | ----------------------- |
-| **POST**   | `/api/v1/tickets/:id/comments` | Add comment             | Agent         | `{ comment, comment_type }` | `{ success, comment }`  |
-| **GET**    | `/api/v1/tickets/:id/comments` | Get comments for ticket | All Roles     | -                           | `{ success, comments }` |
-| **PUT**    | `/api/v1/comments/:id`         | Edit comment            | Agent (owner) | `{ comment }`               | `{ success, comment }`  |
-| **DELETE** | `/api/v1/comments/:id`         | Delete comment          | Agent/Admin   | -                           | `{ success, message }`  |
+| Method     | Endpoint                       | Description             | Access        | Request Body  | Response                |
+| ---------- | ------------------------------ | ----------------------- | ------------- | ------------- | ----------------------- |
+| **POST**   | `/api/v1/tickets/:id/comments` | Add comment             | Agent         | `{ comment }` | `{ success, comment }`  |
+| **GET**    | `/api/v1/tickets/:id/comments` | Get comments for ticket | All Roles     | -             | `{ success, comments }` |
+| **PUT**    | `/api/v1/comments/:id`         | Edit comment            | Agent (owner) | `{ comment }` | `{ success, comment }`  |
+| **DELETE** | `/api/v1/comments/:id`         | Delete comment          | Agent/Admin   | -             | `{ success, message }`  |
 
 ---
 
@@ -310,3 +309,5 @@ The CTMS is designed to centralize all service complaints and automate their tra
 ![/admin/analytics](./w6.png)
 ![/admin/analytics/agent/:agentId](./w7.png)
 ![/admin/analytics/user/:userId](./w8.png)
+![/agent/dashboard](./w9.png)
+![/agent/ticket/:ticketId](./w10.png)
