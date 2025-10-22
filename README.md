@@ -77,25 +77,15 @@ The CTMS is designed to centralize all service complaints and automate their tra
 
 ## **5. Modules**
 
-### Backend Phase
-
-| Phase | Task                                       | Description                                          | Actors Involved    | ETA                         |
-| ----- | ------------------------------------------ | ---------------------------------------------------- | ------------------ | --------------------------- |
-| 1     | **User Authentication**                    | Register/Login, JWT/session, role-based access       | User, Admin, Agent | **Thu 23 Oct – Fri 24 Oct** |
-| 2     | **Ticket Management (User Dashboard API)** | CRUD for tickets, reopen flow, feedback endpoints    | User               | **Mon 27 Oct – Tue 28 Oct** |
-| 3     | **Admin Dashboard API**                    | Assign agents, set ticket priority, view all tickets | Admin              | **Wed 29 Oct**              |
-| 4     | **Agent Dashboard API**                    | Manage assigned tickets, comments, ETA updates       | Agent              | **Thu 30 Oct**              |
-| 5     | **Feedback & Reports Backend**             | Auto-close, SLA metrics, analytics aggregation       | System, Admin      | **Fri 31 Oct**              |
-
-### Frontend Phase
-
-| Phase | Task                           | Description                                         | Actors Involved    | ETA           |
-| ----- | ------------------------------ | --------------------------------------------------- | ------------------ | ------------- |
-| 6     | **User Authentication (UI)**   | Login/Register screens, validation, API integration | User, Admin, Agent | **Mon 3 Nov** |
-| 7     | **User Dashboard UI**          | Raise tickets, track status, feedback modal         | User               | **Tue 4 Nov** |
-| 8     | **Admin Dashboard UI**         | Ticket table, assignment, priority controls         | Admin              | **Wed 5 Nov** |
-| 9     | **Agent Dashboard UI**         | View assigned tickets, comment/ETA inputs           | Agent              | **Thu 6 Nov** |
-| 10    | **Reports & Feedback UI + QA** | Charts, metrics, feedback summary, bug fixes        | Admin, System      | **Fri 7 Nov** |
+| Task                           | Description                                                   | Actors Involved    | ETA (days)            |
+| ------------------------------ | ------------------------------------------------------------- | ------------------ | --------------------- |
+| **User Authentication**        | Register, Login                                               | User, Admin, Agent | 27.10.2025            |
+| **User Dashboard**             | Raise tickets, track status, provide feedback, reopen tickets | User               | 27.10.2025-28.10.2025 |
+| **Admin Dashboard**            | View tickets, assign agents, set priority                     | Admin              | 29.10.2025-30.10.2025 |
+| **Agent Dashboard**            | Manage assigned tickets, add ETA/comments, resolve tickets    | Agent              | 30.10.2025-31.10.2025 |
+| **Feedback System**            | Collect feedback and close tickets automatically              | User/System        | 03.11.2025            |
+| **Reports & Analytics**        | View SLA, resolution rate, and satisfaction                   | Admin              | 03.11.2025-04.11.2025 |
+| **UI Improvement and Bug Fix** | -                                                             | -                  | 05.11.2025-07.11.2025 |
 
 ---
 
