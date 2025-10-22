@@ -4,7 +4,8 @@
 
 ### **Developer:** _Sarnick Chakraborty_
 
-### **Submission Date:** _07.11.2025_
+### **Docs Submission Date:** _24.10.2025_
+### **Project Submission Date:** _07.11.2025_
 
 ---
 
