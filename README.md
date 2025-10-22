@@ -74,9 +74,8 @@ The CTMS is designed to centralize all service complaints and automate their tra
 6. **Admin reports**
 
    - Admins monitor performance via dashboards showing ticket statistics, SLA breaches, feedback scores, and average resolution time.
-  
-![Sequence Diagram](./sequence-diagram.png)
----
+
+## ![Sequence Diagram](./sequence-diagram.png)
 
 ## **5. Modules**
 
@@ -300,3 +299,10 @@ The CTMS is designed to centralize all service complaints and automate their tra
 | **Database (DB)**   | PostgreSQL        |
 | **Version Control** | Git, GitHub       |
 | **Testing / API**   | Postman           |
+
+## **11. Wireframe**
+
+![Wireframe](./w1.png)
+![Wireframe](./w2.png)
+![Wireframe](./w3.png)
+![Wireframe](./w4.png)
