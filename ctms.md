@@ -11,17 +11,21 @@
 ## **1. Project Overview**
 
 The **Complaint & Ticket Management System (CTMS)** is a web-based platform designed to streamline the process of recording, tracking, and resolving user complaints or service requests within an organization.
-Each complaint is converted into a **ticket** that passes through a defined workflow until it is resolved and closed.
-
-This system aims to:
-
-- Improve transparency and accountability.
-- Track complaints efficiently.
-- Ensure faster resolution through ticket assignment and monitoring.
+Each complaint is converted into a **ticket** that passes through a defined workflow until it is resolved.
 
 ---
 
-## **2. Entities & Roles**
+## **2. Business Model & Value Proposition**
+
+The Complaint & Ticket Management System (CTMS) is built to help organizations manage customer or internal service complaints efficiently, transparently, and systematically.
+Instead of manually handling emails, phone calls, or spreadsheets, CTMS provides a centralized, automated ticket-tracking solution — ensuring that no issue is lost, delayed, or unresolved.
+| Stakeholder | Why They’ll Use CTMS | Problems It Solves |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **End Users / Customers** | - Easy, one-click way to raise complaints and track them live.<br>- No need to follow up by phone or email.<br>- Receive automatic updates and resolution times. | - Delayed responses<br>- Lack of transparency<br>- Poor feedback loop |
+| **Support Agents / Service Teams** | - All assigned tickets visible in one place.<br>- Can prioritize tasks and update status quickly.<br>- Communicate internally (private notes) and externally (public comments). | - Work confusion<br>- Poor coordination<br>- Time lost in manual tracking |
+| **Admin / Management** | - Real-time insights on team performance and workload.<br>- Track resolution time, SLA breaches, and user satisfaction.<br>- Improve accountability and productivity. | - No performance visibility<br>- Ineffective monitoring<br>- Difficulty in scaling operations |
+
+## **3. Entities & Roles**
 
 | Entity            | Can Do                                                                                                         |
 | ----------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -31,7 +35,7 @@ This system aims to:
 
 ---
 
-## **3. Work Flow**
+## **4. Work Flow**
 
 1. **User registers & logs in**
 
@@ -74,7 +78,7 @@ This system aims to:
 
 ---
 
-## **5. Entities and Relationships (ER Diagram)**
+## **6. Entities and Relationships (ER Diagram)**
 
 ### **Entity Definitions**
 
@@ -162,13 +166,13 @@ This system aims to:
 - Many-to-One → Ticket (Multiple comments for one ticket)
 - Many-to-One → User (supportAgent who added the comment)
 
-## **6. ER Diagram**
+## **7. ER Diagram**
 
 ![ER Diagram](./er-diagram.png)
 
 ---
 
-## **7. API Endpoints Design (Simplified)**
+## **8. API Endpoints Design (Simplified)**
 
 ### **Authentication Routes**
 
